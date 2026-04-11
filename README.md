@@ -101,8 +101,6 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 │  • Logs for Red‑Team / GovTech Audits                                        │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Code
-
 ---
 
 ## Why MeshGuardEval Exists
