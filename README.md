@@ -29,77 +29,75 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 
 ## Architecture
 
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                              MESHGUARDEVAL                                   │
-│     Hybrid AI Safety + Security Evaluation Harness for Multi‑Agent Systems   │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                        MESHGUARDEVAL                          │
+│     Hybrid AI Safety + Security Evaluation for Agent Systems  │
+└──────────────────────────────────────────────────────────────┘
 
-┌──────────────────────────┐
-│   Test Scenario Inputs    │
-│  (UI flows, prompts,     │
-│   adversarial cases,     │
-│   policy contracts)      │
-└─────────────┬────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                           ORCHESTRATION LAYER                                │
-│  Multi‑Agent Mesh → Routes scenarios through agents, tools, and summarizers  │
-│                                                                              │
-│  • Agent Orchestrator                                                        │
-│  • Tool‑Call Router                                                          │
-│  • Memory / Context Manager                                                  │
-│  • Summarizer Pipeline                                                       │
-└───────────────┬──────────────────────────────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                           OBSERVATION LAYER                                  │
-│  Captures everything the system does during evaluation                       │
-│                                                                              │
-│  • Prompt/Response Capture                                                   │
-│  • Tool‑Call Logs                                                            │
-│  • State Transitions                                                         │
-│  • Agent‑to‑Agent Messages                                                   │
-│  • Summarizer Outputs                                                        │
-└───────────────┬──────────────────────────────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                         VALIDATION & CONTRACTS                               │
-│  Applies safety, security, and correctness rules to observed behavior        │
-│                                                                              │
-│  • Behavior Contracts (MAITE‑style)                                          │
-│  • Guardrail Enforcement Checks                                              │
-│  • Unsafe Tool‑Call Detection                                                │
-│  • Injection Pattern Tests                                                   │
-│  • Hallucination / Fabrication Checks                                        │
-│  • Summarizer Consistency Validation                                         │
-│  • Policy / Limit Enforcement                                                │
-└───────────────┬──────────────────────────────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                         RESULT SYNTHESIS LAYER                               │
-│  Converts raw findings into reviewer‑ready artifacts                         │
-│                                                                              │
-│  • Pass/Fail Assertions                                                      │
-│  • Risk Categorization                                                       │
-│  • Evidence Bundles (inputs + outputs)                                       │
-│  • Chain‑of‑Thought Redaction (safe)                                         │
-│  • Human‑Readable Summaries                                                  │
-└───────────────┬──────────────────────────────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                           OUTPUT ARTIFACTS                                   │
-│                                                                              │
-│  • CI‑Friendly JSON Results                                                  │
-│  • Reviewer‑Ready Reports                                                    │
-│  • Reproducible Test Bundles                                                 │
-│  • Scenario‑Level Dashboards                                                 │
-│  • Logs for Red‑Team / GovTech Audits                                        │
-└──────────────────────────────────────────────────────────────────────────────┘
+                   ┌────────────────────────────┐
+                   │     Test Scenario Inputs    │
+                   │ (UI flows, prompts, policy) │
+                   └──────────────┬──────────────┘
+                                  │
+                                  ▼
+┌──────────────────────────────────────────────────────────────┐
+│                     ORCHESTRATION LAYER                      │
+│  Routes scenarios through agents, tools, memory, summarizers │
+│                                                              │
+│  • Agent Orchestrator                                        │
+│  • Tool‑Call Router                                          │
+│  • Context / Memory Manager                                  │
+│  • Summarizer Pipeline                                       │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────────────────────┐
+│                     OBSERVATION LAYER                        │
+│  Captures all system behavior during evaluation              │
+│                                                              │
+│  • Prompt/Response Capture                                   │
+│  • Tool‑Call Logs                                            │
+│  • State Transitions                                         │
+│  • Agent‑to‑Agent Messages                                   │
+│  • Summarizer Outputs                                        │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────────────────────┐
+│                 VALIDATION & CONTRACTS                        │
+│  Applies safety, security, and correctness rules              │
+│                                                              │
+│  • Behavior Contracts (MAITE‑style)                           │
+│  • Guardrail Enforcement                                      │
+│  • Unsafe Tool‑Call Detection                                 │
+│  • Injection Pattern Tests                                    │
+│  • Hallucination Checks                                       │
+│  • Summarizer Consistency                                     │
+│  • Policy / Limit Enforcement                                 │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────────────────────┐
+│                 RESULT SYNTHESIS LAYER                        │
+│  Converts raw findings into reviewer‑ready artifacts          │
+│                                                              │
+│  • Pass/Fail Assertions                                       │
+│  • Risk Categorization                                        │
+│  • Evidence Bundles                                           │
+│  • Safe CoT Redaction                                         │
+│  • Human‑Readable Summaries                                   │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────────────────────┐
+│                     OUTPUT ARTIFACTS                          │
+│                                                              │
+│  • CI‑Friendly JSON Results                                   │
+│  • Reviewer‑Ready Reports                                     │
+│  • Reproducible Test Bundles                                  │
+│  • Scenario Dashboards                                        │
+│  • Logs for Red‑Team / GovTech Audits                         │
+└──────────────────────────────────────────────────────────────┘
 
 ---
 
