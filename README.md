@@ -27,8 +27,9 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 
 ---
 
-Code
-\\\
+
+## Architecture
+
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                              MESHGUARDEVAL                                   │
 │     Hybrid AI Safety + Security Evaluation Harness for Multi‑Agent Systems   │
@@ -100,7 +101,7 @@ Code
 │  • Scenario‑Level Dashboards                                                 │
 │  • Logs for Red‑Team / GovTech Audits                                        │
 └──────────────────────────────────────────────────────────────────────────────┘
-## Why MeshGuardEval Exists
+# Why MeshGuardEval Exists
 
 Modern AI systems are not just models — they are:
 
