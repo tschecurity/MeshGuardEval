@@ -27,22 +27,20 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 
 ---
 
-
-## Architecture
-
+```
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                              MESHGUARDEVAL                                   │
 │     Hybrid AI Safety + Security Evaluation Harness for Multi‑Agent Systems   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-                          ┌──────────────────────────┐
-                          │   Test Scenario Inputs    │
-                          │  (UI flows, prompts,     │
-                          │   adversarial cases,     │
-                          │   policy contracts)      │
-                          └─────────────┬────────────┘
-                                        │
-                                        ▼
+┌──────────────────────────┐
+│   Test Scenario Inputs    │
+│  (UI flows, prompts,     │
+│   adversarial cases,     │
+│   policy contracts)      │
+└─────────────┬────────────┘
+│
+▼
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                           ORCHESTRATION LAYER                                │
 │  Multi‑Agent Mesh → Routes scenarios through agents, tools, and summarizers  │
@@ -52,8 +50,8 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 │  • Memory / Context Manager                                                  │
 │  • Summarizer Pipeline                                                       │
 └───────────────┬──────────────────────────────────────────────────────────────┘
-                │
-                ▼
+│
+▼
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                           OBSERVATION LAYER                                  │
 │  Captures everything the system does during evaluation                       │
@@ -64,8 +62,8 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 │  • Agent‑to‑Agent Messages                                                   │
 │  • Summarizer Outputs                                                        │
 └───────────────┬──────────────────────────────────────────────────────────────┘
-                │
-                ▼
+│
+▼
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                         VALIDATION & CONTRACTS                               │
 │  Applies safety, security, and correctness rules to observed behavior        │
@@ -78,8 +76,8 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 │  • Summarizer Consistency Validation                                         │
 │  • Policy / Limit Enforcement                                                │
 └───────────────┬──────────────────────────────────────────────────────────────┘
-                │
-                ▼
+│
+▼
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                         RESULT SYNTHESIS LAYER                               │
 │  Converts raw findings into reviewer‑ready artifacts                         │
@@ -90,8 +88,8 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 │  • Chain‑of‑Thought Redaction (safe)                                         │
 │  • Human‑Readable Summaries                                                  │
 └───────────────┬──────────────────────────────────────────────────────────────┘
-                │
-                ▼
+│
+▼
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                           OUTPUT ARTIFACTS                                   │
 │                                                                              │
@@ -101,6 +99,7 @@ Instead of treating QA, security, and LLM behavior as separate problems, MeshGua
 │  • Scenario‑Level Dashboards                                                 │
 │  • Logs for Red‑Team / GovTech Audits                                        │
 └──────────────────────────────────────────────────────────────────────────────┘
+```
 # Why MeshGuardEval Exists
 
 Modern AI systems are not just models — they are:
