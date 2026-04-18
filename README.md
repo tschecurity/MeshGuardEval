@@ -148,4 +148,6 @@ Infrastructure requires evaluation that is:
 
 MeshGuardEval is a step toward that future.
 
+It provides a structured way to evaluate complex systems across multiple layers — from configuration and client behavior to schema integrity and semantic consistency — and scales as platforms evolve.
+
 
