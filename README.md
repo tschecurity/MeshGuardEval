@@ -1,5 +1,5 @@
 # MeshGuardEval  
-### Hybrid AI Safety + Security Evaluation Harness for Multi‑Agent Systems
+### Hybrid AI Safety + Security (Testing) Evaluation Harness for Multi‑Agent Systems
 
 AI systems are evolving faster than our ability to evaluate them — and that gap is where real risk hides.  
 **MeshGuardEval** is a hybrid AI safety and security evaluation harness designed to test multi‑agent systems the way real adversaries and real users actually interact with them.
